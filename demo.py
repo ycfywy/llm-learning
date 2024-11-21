@@ -77,25 +77,25 @@ qa_chain.run("用中文回答所有问题")
 # for point in scroll_result[0]:
 #     print(point)
 
-from flask import Flask,request,render_template
+# from flask import Flask,request,render_template
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
 
-@app.route('/',methods=["GET","POST"])
-def index():
-    if request.method == "POST":
-        qusetion = request.form.get("question")
-        result = qa_chain({"query",qusetion})
+# @app.route('/',methods=["GET","POST"])
+# def index():
+#     if request.method == "POST":
+#         qusetion = request.form.get("question")
+#         result = qa_chain({"query",qusetion})
 
-        return render_template('index.html',result = result)
-    return render_template('index.html')
+#         return render_template('index.html',result = result)
+#     return render_template('index.html')
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+# if __name__ == '__main__':
+#     app.run(debug=True, port=5000)
 
-# embeddings = OpenAIEmbeddings()
+embeddings = OpenAIEmbeddings()
 
-# # 打印测试嵌入结果
-# test_embedding = embeddings.embed_query("This is a test")
-# print(test_embedding)  # 确保它返回有效的向量
+# 打印测试嵌入结果
+test_embedding = embeddings.embed_query("This is a test")
+print(test_embedding)  # 确保它返回有效的向量
