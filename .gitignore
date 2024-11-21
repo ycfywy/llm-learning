@@ -1,6 +1,22 @@
-/logs/*.log 
+# gitignore 在目录被忽略的情况下不可以!进行排除o
+# logs/排除目录加上文件
+# logs/*只排除子目录和文件
 
-# *.log
-/weights/**/*
+logs/*
+!logs/1.log
 
+
+
+
+# case 
+# 在这种case下 3.pth的!就是行不通的
+# weights/*
+# !weights/1.pth
+# !weights/dsad/3.pth
+
+# 对于weight/**/*这种 之后要路径是这个 包括文件夹都要删除 不过大的文件夹weight不会删除
+# 这样子写 *.*就不会把文件夹过滤掉了 不过*.*的含义就是只要带点就都不支持 你要是给个不带点的文件也不会忽略哈哈
+/weights/**/*.*
+# !/weights/1.pth
 !.gitkeep
+# 总体来讲 git 只会跟踪文件 但是gitignore当你忽略了文件夹的时候就不可能再反向匹配其中的内容了 懂吗?
